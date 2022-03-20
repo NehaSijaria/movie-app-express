@@ -6,7 +6,7 @@ app.use(express.json());
 
 const genres= [
   { id:1, name:"comedy"},
-   { id:1, name:"classic"}
+   { id:2, name:"classic"}
 ]
 
 app.get('/',(req,res)=>{
@@ -26,6 +26,11 @@ app.post("/api/genres", (req, res) => {
 
 
 app.put("/api/genres/:id", (req, res) => {
+  const findData = genres.find(obj=> obj.id === parseInt(req.params.id))
+  //{}
+  console.log(findData);
+  findData.name = req.body.name
+  res.send(genres);
 
 });
 
