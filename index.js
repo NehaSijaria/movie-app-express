@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000
-
+const genres = require('./data')
 app.use(express.json());
 
-const genres= [
-  { id:1, name:"comedy"},
-   { id:2, name:"classic"}
-]
+// const genres= [
+//   { id:1, name:"comedy"},
+//    { id:2, name:"classic"}
+// ]
 
 app.get('/',(req,res)=>{
   res.send(genres)
