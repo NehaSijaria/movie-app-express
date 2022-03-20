@@ -34,6 +34,20 @@ app.put("/api/genres/:id", (req, res) => {
 
 });
 
+//delete by id
+app.delete("/api/genres/:id", (req, res) => {
+  const findData = genres.find((obj) => obj.id === parseInt(req.params.id));
+  //{whichere id is provide,that obj return here}
+const index = genres.indexOf(findData);
+const toDelete = genres.splice(index,1)
+  res.send(genres);
+});
+//find by id
+app.get("/api/genres/:id", (req, res) => {
+   const findData = genres.find((obj) => obj.id === parseInt(req.params.id));
+  res.send(findData);
+});
+
 
 app.listen(port, ()=>{
   console.log(`App listening on ${port} `);
